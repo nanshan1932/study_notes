@@ -1,0 +1,8 @@
+    在springboot中启用使用@Cacheable
+
+    在项目中看到方法上使用了@Cacheable这个注解，项目重启之后发现缓存还存在，
+很费解，然后感觉可能缓存是存储在redis中的，根据注解上的key值在redis中找到了这个缓存，
+
+    但是，springboot是如何把缓存存到redis中的？需要配置什么？重启之后redis中的缓存不刷新难道没有问题吗？
+
+
