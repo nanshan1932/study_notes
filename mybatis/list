@@ -13,3 +13,6 @@
 2.一级缓存二级缓存 https://zhuanlan.zhihu.com/p/39487403
 
 3.一、二级缓存及分布式实现 https://blog.csdn.net/soonfly/article/details/64482584
+
+4.https://www.cnblogs.com/fangjian0423/p/mybatis-interceptor.html 插件拦截器
+  https://blog.csdn.net/cowbin2012/article/details/85256360
