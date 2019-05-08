@@ -1,0 +1,15 @@
+1.java api
+
+2.一级缓存，二级缓存
+
+3.分布式情况下mybatis一级缓存脏数据问题
+
+4.mybatis  interceptor接口
+
+
+#######博客#########
+1.美团点评  mybatis缓存机制https://tech.meituan.com/2018/01/19/mybatis-cache.html
+
+2.一级缓存二级缓存 https://zhuanlan.zhihu.com/p/39487403
+
+3.一、二级缓存及分布式实现 https://blog.csdn.net/soonfly/article/details/64482584
