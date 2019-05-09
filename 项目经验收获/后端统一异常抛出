@@ -1,0 +1,62 @@
+项目中统一封装异常抛出：throw new BusinessException()
+利用HandlerInterceptorAdapter和@ControllerAdvice（或者@RestControllerAdvice）实现
+
+实现思路：
+    前端请求到后端，需要返回结果给前端进行响应。
+    1.利用spring mvc提供的HandlerInterceptorAdapter适配器，继承此类，实现自己的拦截器
+      借助此类可以拦截http请求，实现preHandle方法，在前端请求刚进入后端的时候就在请求头设置默认响应消息，默认为请求成功！
+      @Override
+      public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+        throws Exception {
+        // 请求处理成功，设置响应消息头
+        response.setHeader(SysConstants.Header.CODE_NAME, SysConstants.Header.SUCCESS_CODE);
+        response.setHeader(SysConstants.Header.ERR_MSG_NAME, URLEncoder.encode("ok", "UTF-8"));
+        return true;
+      }
+      
+    2.利用@ControllerAdvice @ExceptionHandler注解拦截异常，对请求头进行设置异常信息
+    
+    @Slf4j
+    @RestControllerAdvice
+    public class RRSExceptionHandler {
+
+      @ExceptionHandler(Exception.class)
+      public void defaultExceptionHandler(Exception ex, HttpServletRequest request,
+          HttpServletResponse response) {
+          log.error(ExceptionUtils.getStackTrace(ex));
+        try {
+          setResponseHeader(ex, response);
+          response.setContentType("application/x-json");
+          response.setCharacterEncoding("UTF-8");
+        }
+        catch (Exception e) {
+          log.error(e.getMessage(), e);
+        }
+      }
+
+      /**
+       * 设置处理异常响应消息头
+       * @param ex
+       * @param response
+       * @throws UnsupportedEncodingException
+       */
+      private void setResponseHeader(Exception ex, HttpServletResponse response)
+        throws UnsupportedEncodingException {
+        response.setHeader(SysConstants.Header.CODE_NAME, getErrorCode(ex));
+        response.setHeader(SysConstants.Header.ERR_MSG_NAME,
+                URLEncoder.encode(getErrorMsg(ex), "UTF-8").replaceAll("\\+", "%20"));
+      }
+
+        private String getErrorCode(Exception ex) {
+            String code = null;
+            if (ex instanceof BusinessException) {
+                code = ((BusinessException) ex).getCode();
+            }
+            return StringUtils.defaultIfBlank(code, SysConstants.Header.ERR_CODE_DEFAULT);
+        }
+
+        private String getErrorMsg(Exception ex) {
+            return StringUtils.defaultIfBlank(ex.getMessage(), SysConstants.Header.ERR_MSG_DEFAULT);
+        }
+
+    }
