@@ -1,0 +1,13 @@
+1. mybatis  mapperxml解析中用到（同时用到了装饰着模式decorator）
+
+  Cache cache = new CacheBuilder(currentNamespace)
+        .implementation(valueOrDefault(typeClass, PerpetualCache.class))
+        .addDecorator(valueOrDefault(evictionClass, LruCache.class))
+        .clearInterval(flushInterval)
+        .size(size)
+        .readWrite(readWrite)
+        .blocking(blocking)
+        .properties(props)
+        .build();
+        
+   jdk中StringBuilder
