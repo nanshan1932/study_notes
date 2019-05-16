@@ -4,3 +4,12 @@
 
 3、使用dubbo。使用rpc协议进行远程调用，直接使用socket通信。传输效率高，并且可以统计出系统之间的调用关系、调用次数。
    使用Java语言开发，只能用于Java语言开发的项目间的通信，不具备跨语言，跨平台的特点！
+
+
+#############
+
+简单RPC框架实现
+
+https://www.cnblogs.com/codingexperience/p/5930752.html
+
+
