@@ -1,0 +1,5 @@
+1.服务注册  eureka
+
+2.客户端负载均衡  ribbon
+
+3.声明式http请求  feign
