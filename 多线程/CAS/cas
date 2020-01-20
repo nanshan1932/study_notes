@@ -3,4 +3,7 @@
   java misc(直接操作操作系统底层，misc混合的，大杂烩，linux中放未归类好的文件)包下Unsafe类中CAS操作实现 
 2.CAS问题
   ABA问题——>版本号解决
-  
+  循环时间长，cpu开销大(如果cas操作一直不成功，会导致一直自旋，导致cpu开销大)
+
+学习博客
+https://juejin.im/post/5c021da16fb9a049e65ffcbf
