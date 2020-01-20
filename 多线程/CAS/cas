@@ -1,0 +1,6 @@
+1.java乐观锁实现
+  CAS
+  java misc(直接操作操作系统底层，misc混合的，大杂烩，linux中放未归类好的文件)包下Unsafe类中CAS操作实现 
+2.CAS问题
+  ABA问题——>版本号解决
+  
