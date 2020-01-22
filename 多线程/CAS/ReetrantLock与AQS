@@ -12,3 +12,9 @@ https://juejin.im/post/5c021b59f265da6175737f0b
  缺点是处于等待队列中的线程可能会夯死（试想恰好每次有新线程来，它恰巧都每次获取到锁，此时还在排队等待获取锁的线程就悲剧了），或者等很久才会获得锁
 
 2.ReetrantLock与AQS
+  AbstractQueuedSynchronizer 抽象队列同步器
+  模板方法模式，作为一个基础组件
+  
+  ReetrantLock的内部类Sync继承AQS
+  ReetrantLock有两个子类分别实现公平锁和非公平锁，NonfairSync，FairSync都继承Sync，实现模板中获取锁的抽象方法（tryAcquire）
+  
