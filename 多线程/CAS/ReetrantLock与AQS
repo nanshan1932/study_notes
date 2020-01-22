@@ -14,7 +14,11 @@ https://juejin.im/post/5c021b59f265da6175737f0b
 2.ReetrantLock与AQS
   AbstractQueuedSynchronizer 抽象队列同步器
   模板方法模式，作为一个基础组件
+  AQS本质上是由其内部类Node构成的双向链表
   
   ReetrantLock的内部类Sync继承AQS
   ReetrantLock有两个子类分别实现公平锁和非公平锁，NonfairSync，FairSync都继承Sync，实现模板中获取锁的抽象方法（tryAcquire）
+  
+  多线程获取锁的时候，非公平锁直接先CAS操作设置state状态抢锁，失败则进入队尾排队，自旋（排到对首的时候开始自旋？）
+  公平锁先判断同步队列是否存在节点，如果存在节点线程，则将当前线程封装为node进入队尾排队
   
