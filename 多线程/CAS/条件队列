@@ -1,0 +1,7 @@
+学习博客
+https://juejin.im/post/5c053e546fb9a049fc034924
+
+ReentrantLock的条件队列用来解决线程间的通信问题
+
+
+Condition的具体实现类是AQS的内部类ConditionObject
