@@ -7,3 +7,5 @@
 4. Aviator google表达式求值引擎     QLExpress 规则引擎
 
 5. insight.io for github(GitHub代码阅读插件)
+
+6. spring扩展点之PropertyPlaceholderConfigurer
