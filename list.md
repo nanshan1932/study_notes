@@ -16,3 +16,5 @@
         
 8. netty
 
+9. Log file -> Flume -> Kafka -> Logstash -> ES
+
