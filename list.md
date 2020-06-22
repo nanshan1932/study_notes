@@ -20,3 +20,4 @@
 
 10. hutool
 
+11. redis集群的三种模式 https://www.jianshu.com/p/8e1ed39fdab3
