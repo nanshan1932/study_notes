@@ -21,3 +21,5 @@
 10. hutool
 
 11. redis集群的三种模式 https://www.jianshu.com/p/8e1ed39fdab3
+
+12. 分布式时序数据库  https://zhuanlan.zhihu.com/p/35998778
